@@ -9,15 +9,18 @@ public class ProductManager {
 //            "Тролли. Мировой тур",
 //            "Номер один"
     };
-    public ProductManager (int lastcount){
+
+    public ProductManager(int lastcount) {
         this.lastcount = lastcount;
     }
-    public ProductManager(){
-        this.lastcount=5;
+
+    public ProductManager() {
+        this.lastcount = 5;
     }
+
     public String[] findLast() {
         int maxCount;
-        if(films.length < lastcount){
+        if (films.length < lastcount) {
             maxCount = films.length;
         } else {
             maxCount = lastcount;
@@ -34,8 +37,9 @@ public class ProductManager {
 
         return films;
     }
-    public void addFilm(String newFilm){
-        String[] tmp = new String[films.length+1];
+
+    public void addFilm(String newFilm) {
+        String[] tmp = new String[films.length + 1];
         for (int i = 0; i < films.length; i++) {
             tmp[i] = films[i];
         }

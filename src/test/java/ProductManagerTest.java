@@ -15,18 +15,20 @@ public class ProductManagerTest {
             "Тролли. Мировой тур",
             "Номер один"
     };
+
     @BeforeEach
-    public void setup (){
-        for (String film : films){
+    public void setup() {
+        for (String film : films) {
             manager.addFilm(film);
         }
 
     }
 
     @Test
-    public void addFilmTest(){
+    public void addFilmTest() {
         manager.addFilm("xxxxx");
-        String[] expected = { "Бладшот",
+        String[] expected = {
+                "Бладшот",
                 "Вперед",
                 "Отель 'Белград'",
                 "Джентельмены",
@@ -35,15 +37,16 @@ public class ProductManagerTest {
                 "Номер один", "xxxxx"};
         String[] actual = manager.findAll();
 
-        Assertions.assertArrayEquals(expected,actual);
-
+        Assertions.assertArrayEquals(expected, actual);
 
 
     }
-    @Test
-    public void findLastFilm(){
 
-        String[] expected = { "Номер один",
+    @Test
+    public void findLastFilm() {
+
+        String[] expected = {
+                "Номер один",
                 "Тролли. Мировой тур",
                 "Человек-невидимка",
                 "Джентельмены",
@@ -52,8 +55,7 @@ public class ProductManagerTest {
         };
         String[] actual = manager.findLast();
 
-        Assertions.assertArrayEquals(expected,actual);
-
+        Assertions.assertArrayEquals(expected, actual);
 
 
     }
