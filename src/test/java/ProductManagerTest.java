@@ -37,7 +37,7 @@ public class ProductManagerTest {
 
     @Test
     public void shoudFindMoreLimit() {
-        ProductManager manager = new ProductManager(7);
+        ProductManager manager = new ProductManager(6);
         manager.addMovie("Бладшот");
         manager.addMovie("Вперед");
         manager.addMovie("Джентельмены");
@@ -46,7 +46,7 @@ public class ProductManagerTest {
         manager.addMovie("Номер один");
         manager.addMovie("Матрица");
 
-        String[] expected = {"Матрица", "Номер один", "Тролли. Мировой тур", "Человек-невидимка", "Джентельмены", "Вперед", "Бладшот"};
+        String[] expected = {"Матрица", "Номер один", "Тролли. Мировой тур", "Человек-невидимка", "Джентельмены", "Вперед",};
         String[] actual = manager.findLast();
 
         Assertions.assertArrayEquals(expected, actual);
