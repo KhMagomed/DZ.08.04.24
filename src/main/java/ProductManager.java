@@ -1,52 +1,42 @@
 public class ProductManager {
-    private int lastcount;
-    private String[] films = {
-//            "Бладшот",
-//            "Вперед",
-//            "Отель 'Белград'",
-//            "Джентельмены",
-//            "Человек-невидимка",
-//            "Тролли. Мировой тур",
-//            "Номер один"
-    };
 
-    public ProductManager(int lastcount) {
-        this.lastcount = lastcount;
+    private String[] movies = new String[0];
+    private int limit;
+
+    public ProductManager(int limit) {
+        this.limit = limit;
     }
 
     public ProductManager() {
-        this.lastcount = 5;
+        this.limit = 5;
+
+    }
+
+
+    public void addMovie(String movie) {
+        String[] tmp = new String[movies.length + 1];
+        for (int i = 0; i < movies.length; i++) {
+            tmp[i] = movies[i];
+        }
+        tmp[tmp.length - 1] = movie;
+        movies = tmp;
+    }
+
+    public String[] findAll() {
+        return movies;
+
     }
 
     public String[] findLast() {
-        int maxCount;
-        if (films.length < lastcount) {
-            maxCount = films.length;
-        } else {
-            maxCount = lastcount;
-        }
-        String[] tmp = new String[maxCount];
+        int resultLength;
+        if (movies.length < limit) {
+            resultLength = movies.length;
+        } else resultLength = limit;
+        String[] tmp = new String[resultLength];
         for (int i = 0; i < tmp.length; i++) {
-            tmp[i] = films[films.length - 1 - i];
+            tmp[i] = movies[movies.length - 1 - i];
         }
         return tmp;
 
     }
-
-    public String[] findAll() {
-
-        return films;
-    }
-
-    public void addFilm(String newFilm) {
-        String[] tmp = new String[films.length + 1];
-        for (int i = 0; i < films.length; i++) {
-            tmp[i] = films[i];
-        }
-        tmp[tmp.length - 1] = newFilm;
-        films = tmp;
-
-    }
-
-
 }
